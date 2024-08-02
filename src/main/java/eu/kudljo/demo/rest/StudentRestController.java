@@ -3,6 +3,7 @@ package eu.kudljo.demo.rest;
 import eu.kudljo.demo.entity.Student;
 import jakarta.annotation.PostConstruct;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,4 +29,10 @@ public class StudentRestController {
     public List<Student> getStudent() {
         return students;
     }
+
+    @GetMapping("/students/{studentId}")
+    public Student getStudent(@PathVariable int studentId) {
+        return students.get(studentId);
+    }
+
 }
